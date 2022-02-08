@@ -2,7 +2,7 @@ import View from './View.js';
 import PreviewView from './previewView.js';
 
 class BookmarksView extends View {
-  parentElement = document.querySelector('.bookmarks');
+  _parentElement = document.querySelector('.bookmarks');
   _errorMessage = 'No bookmark yet. try a nice one and bookmarked it ;)';
   _message = '';
 

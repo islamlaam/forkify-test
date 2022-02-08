@@ -13,7 +13,7 @@ export default class View {
     if (!render) return markup;
 
     this._clear();
-    this.parentElement.insertAdjacentHTML('afterbegin', markup);
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
   update(data) {
@@ -21,7 +21,7 @@ export default class View {
     const newMarkup = this._generateMarkup();
     const newDOM = document.createRange().createContextualFragment(newMarkup);
     const newElements = Array.from(newDOM.querySelectorAll('*'));
-    const curElements = Array.from(this.parentElement.querySelectorAll('*'));
+    const curElements = Array.from(this._parentElement.querySelectorAll('*'));
 
     newElements.forEach((newEl, i) => {
       const curEl = curElements[i];
@@ -44,7 +44,7 @@ export default class View {
   }
 
   _clear() {
-    this.parentElement.innerHTML = '';
+    this._parentElement.innerHTML = '';
   }
 
   renderSpinner() {
@@ -56,7 +56,7 @@ export default class View {
       </div>`;
 
     this._clear();
-    this.parentElement.insertAdjacentHTML('afterbegin', markup);
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
   renderError(message = this._errorMessage) {
@@ -71,7 +71,7 @@ export default class View {
         </div>
     `;
     this._clear();
-    this.parentElement.insertAdjacentHTML('afterbegin', markup);
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
   renderSuccess(message = this._message) {
@@ -86,6 +86,6 @@ export default class View {
         </div>
     `;
     this._clear();
-    this.parentElement.insertAdjacentHTML('afterbegin', markup);
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 }

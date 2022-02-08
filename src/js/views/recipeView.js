@@ -3,7 +3,7 @@ import icons from 'url:../../img/icons.svg';
 import { Fraction } from 'fractional';
 
 class RecipeView extends View {
-  parentElement = document.querySelector('.recipe');
+  _parentElement = document.querySelector('.recipe');
   _errorMessage = 'We could not fint that recipe. Please try another one!';
   _message = '';
 
@@ -12,7 +12,7 @@ class RecipeView extends View {
   }
 
   addHandlerUpdateServings(handler) {
-    this.parentElement.addEventListener('click', function (e) {
+    this._parentElement.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn--update-servings');
       if (!btn) return;
 
@@ -22,7 +22,7 @@ class RecipeView extends View {
   }
 
   addHandlerAddBookmark(handler) {
-    this.parentElement.addEventListener('click', function (e) {
+    this._parentElement.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn--bookmark');
       if (!btn) return;
 

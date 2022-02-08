@@ -2,10 +2,10 @@ import View from './View.js';
 import icons from 'url:../../img/icons.svg';
 
 class PaginationView extends View {
-  parentElement = document.querySelector('.pagination');
+  _parentElement = document.querySelector('.pagination');
 
   addHandlerClick(handler) {
-    this.parentElement.addEventListener('click', function (e) {
+    this._parentElement.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn--inline');
 
       const goToPage = +btn.dataset.goto;
